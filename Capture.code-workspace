@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../Capture"
+		}
+	],
+	"settings": {
+		"C_Cpp.default.compileCommands": "/home/tiger/Capture/builddir/compile_commands.json",
+		"C_Cpp.default.configurationProvider": "mesonbuild.mesonbuild"
+	}
+}
