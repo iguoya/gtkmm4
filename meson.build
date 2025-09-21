@@ -29,8 +29,9 @@ foreach blp_file : ui_blp_files
 endforeach
 
 src_files = files(
-  'main.cpp',
-  'athena.cpp'
+  'main.cc',
+  'athena.cc',
+  'mainwindow.cc'
 )
 # 定义要打包的资源列表
 # meson.project_source_root() 确保路径是相对项目根目录的
