@@ -13,8 +13,9 @@ blueprint_compiler = find_program('blueprint-compiler')
 # 定义一个自定义目标，将所有 .blp 文件编译为 .ui 文件
 compiled_ui = []
 ui_blp_files = files(
-  'resources/ui/mainwindow.blp',
-  # 'resources/ui/my_about_dialog.blp',
+  'resources/ui/window.blp',
+  'resources/ui/chapters/functions.blp',
+  'resources/ui/chapters/basic_syntax.blp',
 )
 foreach blp_file : ui_blp_files
   ui_file = fs.stem(blp_file) + '.ui'
@@ -29,7 +30,7 @@ endforeach
 
 src_files = files(
   'main.cpp',
-  'mainwindow.cpp'
+  'athena.cpp'
 )
 # 定义要打包的资源列表
 # meson.project_source_root() 确保路径是相对项目根目录的

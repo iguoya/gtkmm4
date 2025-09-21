@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=GTKmm Complex Example
-Comment=A demonstration of GTKmm application structure
-Exec=gtkmm-complex-example
-Icon=org.gtkmm.complex.example
-Terminal=false
-Type=Application
-Categories=GTK;Development;
-StartupNotify=true

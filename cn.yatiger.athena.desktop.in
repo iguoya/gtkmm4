@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Athena
+Comment=A demonstration of c++ syntax application 
+Exec=Athena
+Icon=cn.yatiger.athena.icon
+Terminal=false
+Type=Application
+Categories=GTKMM;Development;
+StartupNotify=true

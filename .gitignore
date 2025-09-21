@@ -1,0 +1,23 @@
+# Meson build directory
+build/
+
+# Meson internal files
+meson-private/
+meson-logs/
+_deps/
+
+# C/C++ object and executable files
+*.o
+*.a
+*.so
+*.dll
+*.exe
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+.clangd/
+
+# OS specific files
+.DS_Store
+Thumbs.db
