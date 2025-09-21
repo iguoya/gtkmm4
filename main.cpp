@@ -1,15 +1,13 @@
 #include "mainwindow.h"
 
-class MyApp : public Gtk::Application {
+class Athena : public Gtk::Application {
 protected:
-  MyApp() : Gtk::Application("org.example.MyApp") {}
+  Athena() : Gtk::Application("cn.yatiger.athena") {}
 
   void on_activate() override {
-    auto builder = Gtk::Builder::create_from_resource("/cn/yatiger/app/mainwindow.ui");
-    // auto win = builder->get_widget_derived<MainWindow>("main_window");
+    auto builder = Gtk::Builder::create_from_resource("/cn/yatiger/athena/mainwindow.ui");
     auto win = Gtk::Builder::get_widget_derived<MainWindow>(builder, "main_window");
-    
-    
+
     if (!win)
       throw std::runtime_error("Could not get MainWindow from UI file");
 
@@ -18,12 +16,12 @@ protected:
   }
 
 public:
-  static Glib::RefPtr<MyApp> create() {
-    return Glib::RefPtr<MyApp>(new MyApp());
+  static Glib::RefPtr<Athena> create() {
+    return Glib::RefPtr<Athena>(new Athena());
   }
 };
 
 int main(int argc, char* argv[]) {
-  auto app = MyApp::create();
+  auto app = Athena::create();
   return app->run(argc, argv);
 }
