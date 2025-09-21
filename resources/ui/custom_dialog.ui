@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkBox" id="dialog_content">
+    <property name="orientation">vertical</property>
+    <property name="spacing">12</property>
+    <property name="margin">12</property>
+    <child>
+      <object class="GtkEntry" id="entry">
+        <property name="placeholder-text">Enter something...</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButtonBox">
+        <property name="orientation">horizontal</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkButton" id="btn_ok">
+            <property name="label">OK</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_cancel">
+            <property name="label">Cancel</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
