@@ -1,124 +1,554 @@
 using Gtk 4.0;
 
 ApplicationWindow main_window {
-    title: "My App";
-    default-width: 800;
-    default-height: 600;
+  title: "My App";
+  default-width: 1200;
+  default-height: 800;
 
-    Box welcome {
-        orientation: vertical;
-        valign: center;
-        halign: center;
-
-        Image {
-            name: "logo";
-            icon-name: "re.sonny.Workbench";
-            pixel-size: 196;
-            margin-bottom: 30;
-
-            styles [
-                "icon-dropshadow",
-            ]
+  Box main_container {
+    orientation: horizontal;
+    
+    // 左侧边栏
+    Box sidebar {
+      orientation: vertical;
+      width-request: 250;
+      
+      styles [
+        "sidebar"
+      ]
+      
+      // 侧边栏标题
+      HeaderBar sidebar_header {
+        title-widget: Label {
+          label: "菜单";
+          
+          styles [
+            "heading"
+          ]
+        };
+        
+        styles [
+          "flat"
+        ]
+      }
+      
+      // 分割线
+      Separator {
+        orientation: horizontal;
+      }
+      
+      // 菜单列表
+      ScrolledWindow {
+        hexpand: false;
+        vexpand: true;
+        
+        ListBox menu_list {
+          selection-mode: single;
+          
+          styles [
+            "navigation-sidebar"
+          ]
+          
+          ListBoxRow home_row {
+            Box {
+              spacing: 12;
+              margin-start: 16;
+              margin-end: 16;
+              margin-top: 8;
+              margin-bottom: 8;
+              
+              Image {
+                icon-name: "user-home-symbolic";
+                icon-size: normal;
+              }
+              
+              Label {
+                label: "首页";
+                hexpand: true;
+                xalign: 0;
+              }
+            }
+          }
+          
+          ListBoxRow documents_row {
+            Box {
+              spacing: 12;
+              margin-start: 16;
+              margin-end: 16;
+              margin-top: 8;
+              margin-bottom: 8;
+              
+              Image {
+                icon-name: "folder-documents-symbolic";
+                icon-size: normal;
+              }
+              
+              Label {
+                label: "文档";
+                hexpand: true;
+                xalign: 0;
+              }
+            }
+          }
+          
+          ListBoxRow settings_row {
+            Box {
+              spacing: 12;
+              margin-start: 16;
+              margin-end: 16;
+              margin-top: 8;
+              margin-bottom: 8;
+              
+              Image {
+                icon-name: "preferences-system-symbolic";
+                icon-size: normal;
+              }
+              
+              Label {
+                label: "设置";
+                hexpand: true;
+                xalign: 0;
+              }
+            }
+          }
+          
+          ListBoxRow projects_row {
+            Box {
+              spacing: 12;
+              margin-start: 16;
+              margin-end: 16;
+              margin-top: 8;
+              margin-bottom: 8;
+              
+              Image {
+                icon-name: "folder-symbolic";
+                icon-size: normal;
+              }
+              
+              Label {
+                label: "项目";
+                hexpand: true;
+                xalign: 0;
+              }
+            }
+          }
+          
+          ListBoxRow about_row {
+            Box {
+              spacing: 12;
+              margin-start: 16;
+              margin-end: 16;
+              margin-top: 8;
+              margin-bottom: 8;
+              
+              Image {
+                icon-name: "help-about-symbolic";
+                icon-size: normal;
+              }
+              
+              Label {
+                label: "关于";
+                hexpand: true;
+                xalign: 0;
+              }
+            }
+          }
         }
-
-        Label {
-            label: _("Welcome to Workbench");
-            margin-bottom: 30;
-
-            styles [
-                "title-1",
-            ]
-        }
-
-        Box subtitle {
-            orientation: vertical;
-            halign: center;
-            margin-bottom: 30;
-
-            Label {
-                label: "Learn and prototype with\nGNOME technologies";
-                justify: center;
-            }
-        }
-
-        Box {
-            orientation: vertical;
-            homogeneous: true;
-            halign: center;
-
-            Box {
-                margin-bottom: 6;
-
-                Image {
-                    icon-name: "update-symbolic";
-                    margin-end: 12;
-                    icon-size: normal;
-                }
-
-                Label {
-                    label: _("Edit Style or UI to update the Preview");
-                }
-            }
-
-            Box {
-                margin-bottom: 6;
-
-                Image {
-                    icon-name: "play-large-symbolic";
-                    margin-end: 12;
-                    icon-size: normal;
-                }
-
-                Label {
-                    label: _("Hit");
-                }
-
-                Label {
-                    label: _("to format and run Code");
-                }
-            }
-
-            Box {
-                margin-bottom: 6;
-
-                Image {
-                    icon-name: "floppy-symbolic";
-                    margin-end: 12;
-                    icon-size: normal;
-                }
-
-                Label {
-                    label: _("Changes are automatically saved and restored");
-                }
-            }
-
-            Box {
-                margin-bottom: 6;
-
-                Image {
-                    icon-name: "library-symbolic";
-                    margin-end: 12;
-                    icon-size: normal;
-                }
-
-                Label {
-                    label: _("Browse the Library for demos and examples");
-                }
-            }
-
-            Box {
-                margin-bottom: 6;
-
-                Image {
-                    icon-name: "bookmark-outline-symbolic";
-                    margin-end: 12;
-                    icon-size: normal;
-                }
-
-                Label {
-                    label: _("Checkout the Bookmarks menu to learn and get help");
-                }
-            }
-        }
+      }
     }
+    
+    // 垂直分割线
+    Separator {
+      orientation: vertical;
+    }
+    
+    // 右侧主要内容区
+    Box content_area {
+      orientation: vertical;
+      hexpand: true;
+      
+      // 顶部标题栏
+      HeaderBar content_header {
+        title-widget: Label content_title {
+          label: "欢迎使用";
+          
+          styles [
+            "title"
+          ]
+        };
+        
+        // 右侧按钮
+        [end]
+        MenuButton {
+          icon-name: "open-menu-symbolic";
+          tooltip-text: "应用菜单";
+          
+          popover: PopoverMenu {
+            menu-model: app_menu;
+          };
+        }
+      }
+      
+      // 内容区域
+      ScrolledWindow content_scroll {
+        hexpand: true;
+        vexpand: true;
+        
+        Stack content_stack {
+          transition-type: slide_left_right;
+          
+          StackPage home_page {
+            name: "home";
+            title: "首页";
+            
+            child: Box {
+              orientation: vertical;
+              valign: center;
+              halign: center;
+              spacing: 24;
+              margin-start: 48;
+              margin-end: 48;
+              margin-top: 48;
+              margin-bottom: 48;
+              
+              Image {
+                icon-name: "user-home-symbolic";
+                pixel-size: 128;
+                
+                styles [
+                  "icon-dropshadow"
+                ]
+              }
+              
+              Label {
+                label: "欢迎来到首页";
+                
+                styles [
+                  "title-1"
+                ]
+              }
+              
+              Label {
+                label: "这里是主要内容区域，你可以在这里显示各种内容。";
+                justify: center;
+                wrap: true;
+                max-width-chars: 50;
+              }
+              
+              Button welcome_button {
+                label: "开始使用";
+                
+                styles [
+                  "suggested-action",
+                  "pill"
+                ]
+              }
+            };
+          }
+          
+          StackPage documents_page {
+            name: "documents";
+            title: "文档";
+            
+            child: Box {
+              orientation: vertical;
+              spacing: 12;
+              margin-start: 24;
+              margin-end: 24;
+              margin-top: 24;
+              margin-bottom: 24;
+              
+              Label {
+                label: "文档管理";
+                xalign: 0;
+                
+                styles [
+                  "title-2"
+                ]
+              }
+              
+              Label {
+                label: "在这里管理你的文档文件。";
+                xalign: 0;
+              }
+              
+              // 文档列表占位符
+              ListBox {
+                ListBoxRow {
+                  Label {
+                    label: "文档 1.pdf";
+                    xalign: 0;
+                    margin-start: 12;
+                    margin-end: 12;
+                    margin-top: 8;
+                    margin-bottom: 8;
+                  }
+                }
+                
+                ListBoxRow {
+                  Label {
+                    label: "文档 2.docx";
+                    xalign: 0;
+                    margin-start: 12;
+                    margin-end: 12;
+                    margin-top: 8;
+                    margin-bottom: 8;
+                  }
+                }
+                
+                styles [
+                  "boxed-list"
+                ]
+              }
+            };
+          }
+          
+          StackPage settings_page {
+            name: "settings";
+            title: "设置";
+            
+            child: Box {
+              orientation: vertical;
+              spacing: 12;
+              margin-start: 24;
+              margin-end: 24;
+              margin-top: 24;
+              margin-bottom: 24;
+              
+              Label {
+                label: "应用设置";
+                xalign: 0;
+                
+                styles [
+                  "title-2"
+                ]
+              }
+              
+              // 设置选项
+              ListBox {
+                ListBoxRow {
+                  Box {
+                    spacing: 12;
+                    margin-start: 12;
+                    margin-end: 12;
+                    margin-top: 8;
+                    margin-bottom: 8;
+                    
+                    Label {
+                      label: "深色主题";
+                      hexpand: true;
+                      xalign: 0;
+                    }
+                    
+                    Switch {
+                      valign: center;
+                    }
+                  }
+                }
+                
+                ListBoxRow {
+                  Box {
+                    spacing: 12;
+                    margin-start: 12;
+                    margin-end: 12;
+                    margin-top: 8;
+                    margin-bottom: 8;
+                    
+                    Label {
+                      label: "启用通知";
+                      hexpand: true;
+                      xalign: 0;
+                    }
+                    
+                    Switch {
+                      valign: center;
+                      active: true;
+                    }
+                  }
+                }
+                
+                styles [
+                  "boxed-list"
+                ]
+              }
+            };
+          }
+          
+          StackPage projects_page {
+            name: "projects";
+            title: "项目";
+            
+            child: Box {
+              orientation: vertical;
+              spacing: 12;
+              margin-start: 24;
+              margin-end: 24;
+              margin-top: 24;
+              margin-bottom: 24;
+              
+              Box {
+                spacing: 12;
+                
+                Label {
+                  label: "我的项目";
+                  hexpand: true;
+                  xalign: 0;
+                  
+                  styles [
+                    "title-2"
+                  ]
+                }
+                
+                Button {
+                  icon-name: "list-add-symbolic";
+                  tooltip-text: "添加项目";
+                  
+                  styles [
+                    "flat"
+                  ]
+                }
+              }
+              
+              // 项目网格
+              FlowBox {
+                selection-mode: none;
+                column-spacing: 12;
+                row-spacing: 12;
+                
+                FlowBoxChild {
+                  Box {
+                    orientation: vertical;
+                    spacing: 8;
+                    width-request: 200;
+                    
+                    Image {
+                      icon-name: "folder-symbolic";
+                      pixel-size: 64;
+                    }
+                    
+                    Label {
+                      label: "项目 1";
+                      
+                      styles [
+                        "title-4"
+                      ]
+                    }
+                    
+                    Label {
+                      label: "项目描述";
+                      
+                      styles [
+                        "dim-label"
+                      ]
+                    }
+                    
+                    styles [
+                      "card"
+                    ]
+                  }
+                }
+                
+                FlowBoxChild {
+                  Box {
+                    orientation: vertical;
+                    spacing: 8;
+                    width-request: 200;
+                    
+                    Image {
+                      icon-name: "folder-symbolic";
+                      pixel-size: 64;
+                    }
+                    
+                    Label {
+                      label: "项目 2";
+                      
+                      styles [
+                        "title-4"
+                      ]
+                    }
+                    
+                    Label {
+                      label: "另一个项目";
+                      
+                      styles [
+                        "dim-label"
+                      ]
+                    }
+                    
+                    styles [
+                      "card"
+                    ]
+                  }
+                }
+              }
+            };
+          }
+          
+          StackPage about_page {
+            name: "about";
+            title: "关于";
+            
+            child: Box {
+              orientation: vertical;
+              valign: center;
+              halign: center;
+              spacing: 24;
+              margin-start: 48;
+              margin-end: 48;
+              margin-top: 48;
+              margin-bottom: 48;
+              
+              Image {
+                icon-name: "help-about-symbolic";
+                pixel-size: 128;
+              }
+              
+              Label {
+                label: "我的应用";
+                
+                styles [
+                  "title-1"
+                ]
+              }
+              
+              Label {
+                label: "版本 1.0.0";
+                
+                styles [
+                  "title-4"
+                ]
+              }
+              
+              Label {
+                label: "这是一个使用 GTK 4 和 Blueprint 构建的示例应用程序。";
+                justify: center;
+                wrap: true;
+                max-width-chars: 50;
+              }
+            };
+          }
+        }
+      }
+    }
+  }
+}
+
+// 应用菜单
+menu app_menu {
+  section {
+    item {
+      label: "偏好设置";
+      action: "app.preferences";
+    }
+    
+    item {
+      label: "关于";
+      action: "app.about";
+    }
+    
+    item {
+      label: "退出";
+      action: "app.quit";
+    }
+  }
 }
