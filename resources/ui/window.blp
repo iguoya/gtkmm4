@@ -1,4 +1,5 @@
 using Gtk 4.0;
+
 ApplicationWindow window {
   title: "Athena - C++ 学习指南";
   default-width: 1920;
@@ -6,329 +7,510 @@ ApplicationWindow window {
   resizable: true;
   deletable: false;
   maximized: true;
+
   Box main_container {
     orientation: horizontal;
     // 左侧边栏
-    Box sidebar {
-      orientation: vertical;
-      width-request: 280;
-      styles [
-        "sidebar",
-      ]
+    StackSidebar sidebarsss {
+      stack: main_stack;
+      width-request: 200;
       // 侧边栏标题
-      HeaderBar sidebar_header {
-        show-title-buttons: false;
-        title-widget: Label {
-          label: "C++ 学习路线";
-          styles [
-            "heading",
-          ]
-        };
-        styles [
-          "flat",
-        ]
-      }
-      // 分割线
-      Separator {
-        orientation: horizontal;
-      }
-      // 菜单列表
-      ScrolledWindow {
-        hexpand: false;
-        vexpand: true;
-        hscrollbar-policy: never;
-        ListBox menu_list {
-          selection-mode: single;
-          styles [
-            "navigation-sidebar",
-          ]
+    }
 
- // ------------------ 基本用法 ------------------
+    // 左侧二级菜单区域
+    Stack main_stack {
+      transition-type: slide_left_right;
+      width-request: 280;
+      // ------------------ C++ ------------------
+      StackPage {
+        name: "cpp";
+        title: "C++";
 
-
-  // ------------------ 类与对象 ------------------
- 
-
-  // ------------------ STL 标准库 ------------------
-
-Expander basics {
-   
-        label: "基本用法";
-        styles [
-          "heading",
-        ]
-        expanded: false;
-        Box {
-          orientation: vertical;
-          spacing: 4;
-
+        child: ListBox menu_list{
+          // 基本用法
           ListBoxRow welcome {
             name: "welcome";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "text-x-generic-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "欢迎页"; styles ["heading"] }
-                Label { label: "总体学习思想与路线"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "欢迎页";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "总体学习思想与路线";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow basic_syntax {
             name: "basic_syntax";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "text-x-generic-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "基础语法"; styles ["heading"] }
-                Label { label: "变量、数据类型、运算符"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "基础语法";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "变量、数据类型、运算符";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow arrays_strings {
             name: "arrays_strings";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "view-list-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "数组与字符串"; styles ["heading"] }
-                Label { label: "一维/多维数组、C风格字符串"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "数组与字符串";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "一维/多维数组、C风格字符串";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow functions {
             name: "functions";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "system-run-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "函数基础"; styles ["heading"] }
-                Label { label: "函数定义、参数传递、重载"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "函数基础";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "函数定义、参数传递、重载";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow pointers_references {
             name: "pointers_references";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "preferences-desktop-remote-desktop-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "指针与引用"; styles ["heading"] }
-                Label { label: "内存管理、指针运算、引用类型"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "指针与引用";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "内存管理、指针运算、引用类型";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow memory_management {
             name: "memory_management";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "drive-harddisk-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "动态内存"; styles ["heading"] }
-                Label { label: "new/delete、内存泄漏防范"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "动态内存";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "new/delete、内存泄漏防范";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
-        }
-      }
-
-      // 类与对象
-      Expander classes_objects_expander {
-        label: "类与对象";
-        styles [
-          "heading",
-        ]
-        expanded: false;
-        Box {
-          orientation: vertical;
-          spacing: 4;
-
+          // 类与对象
           ListBoxRow classes_objects {
             name: "classes_objects";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "applications-development-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "类与对象"; styles ["heading"] }
-                Label { label: "类定义、成员变量与函数"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "类与对象";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "类定义、成员变量与函数";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow constructors_destructors {
             name: "constructors_destructors";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "view-refresh-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "构造与析构"; styles ["heading"] }
-                Label { label: "构造函数、析构函数、拷贝控制"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "构造与析构";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "构造函数、析构函数、拷贝控制";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow inheritance {
             name: "inheritance";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "folder-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "继承"; styles ["heading"] }
-                Label { label: "单继承、多继承、访问控制"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "继承";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "单继承、多继承、访问控制";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow polymorphism {
             name: "polymorphism";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "preferences-system-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "多态"; styles ["heading"] }
-                Label { label: "虚函数、抽象类、接口设计"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "多态";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "虚函数、抽象类、接口设计";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
-        }
-      }
-
-      // STL标准库
-      Expander stl_expander {
-        label: "STL 标准库";
-        expanded: false;
-        Box {
-          orientation: vertical;
-          spacing: 4;
-
+          // STL 标准库
           ListBoxRow stl_containers {
             name: "stl_containers";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "folder-music-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "STL 容器"; styles ["heading"] }
-                Label { label: "vector、list、map、set等"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "STL 容器";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "vector、list、map、set等";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow algorithms {
             name: "algorithms";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "applications-science-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "STL 算法"; styles ["heading"] }
-                Label { label: "排序、查找、变换算法"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "STL 算法";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "排序、查找、变换算法";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow iterators {
             name: "iterators";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "go-next-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "迭代器"; styles ["heading"] }
-                Label { label: "迭代器类型、范围for循环"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "迭代器";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "迭代器类型、范围for循环";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
-
-          // 第五阶段：模板编程
           ListBoxRow templates {
             name: "templates";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "folder-pictures-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
+
                 Label {
                   label: "模板基础";
+
                   styles [
                     "heading",
                   ]
                 }
+
                 Label {
                   label: "函数模板、类模板";
+
                   styles [
                     "caption",
                     "dim-label",
@@ -337,25 +519,33 @@ Expander basics {
               }
             }
           }
+
           ListBoxRow generic_programming {
             name: "generic_programming";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "applications-engineering-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
+
                 Label {
                   label: "泛型编程";
+
                   styles [
                     "heading",
                   ]
                 }
+
                 Label {
                   label: "模板特化、SFINAE";
+
                   styles [
                     "caption",
                     "dim-label",
@@ -365,231 +555,418 @@ Expander basics {
             }
           }
 
-        }
-      }
-
-      // 新特性
-      Expander modern_cpp_expander {
-        label: "新特性";
-        expanded: false;
-        Box {
-          orientation: vertical;
-          spacing: 4;
-
+          // 新特性
           ListBoxRow cpp11_features {
             name: "cpp11_features";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "document-new-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "C++11 特性"; styles ["heading"] }
-                Label { label: "auto、lambda、智能指针"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "C++11 特性";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "auto、lambda、智能指针";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow cpp14_17_features {
             name: "cpp14_17_features";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "document-properties-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "C++14/17 特性"; styles ["heading"] }
-                Label { label: "变量模板、if constexpr"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "C++14/17 特性";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "变量模板、if constexpr";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
 
           ListBoxRow cpp20_features {
             name: "cpp20_features";
+
             Box {
               spacing: 12;
+
               Image {
                 icon-name: "starred-symbolic";
               }
+
               Box {
                 orientation: vertical;
                 spacing: 4;
                 hexpand: true;
-                Label { label: "C++20 特性"; styles ["heading"] }
-                Label { label: "概念、协程、模块"; styles ["caption","dim-label"] }
+
+                Label {
+                  label: "C++20 特性";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "概念、协程、模块";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
               }
             }
           }
-
-        }
+        };
       }
 
-   
+      // ------------------ 数据结构与算法 ------------------
+      StackPage {
+        name: "ds_algo";
+        title: "数据结构与算法";
 
-   
-      
-      
-          // 第四阶段：STL与容器
-        
-      
-         
-          // 第六阶段：现代C++
-         
-         
-          
-          // 第七阶段：实用技能
-         
-          
-          
-          
-        
-         
+        child: ListBox {
+          ListBoxRow arrays {
+            name: "arrays";
 
-                    // 新增：数据结构与算法
-          Expander data_structures_algorithms {
-            label: "数据结构与算法";
-            expanded: false;
             Box {
-              orientation: vertical;
-              spacing: 4;
-              ListBoxRow arrays {
-                name: "arrays";
-                Box {
-                  spacing: 12;
-                  Image { icon-name: "view-list-symbolic"; }
-                  Box {
-                    orientation: vertical;
-                    spacing: 4;
-                    hexpand: true;
-                    Label { label: "数组"; styles ["heading"]}
-                    Label { label: "一维/多维数组"; styles ["caption","dim-label"] }
-                  }
-                }
+              spacing: 12;
+
+              Image {
+                icon-name: "view-list-symbolic";
               }
-              ListBoxRow linked_lists {
-                name: "linked_lists";
-                Box {
-                  spacing: 12;
-                  Image { icon-name: "view-list-symbolic"; }
-                  Box {
-                    orientation: vertical;
-                    spacing: 4;
-                    hexpand: true;
-                    Label { label: "链表"; styles ["heading"] }
-                    Label { label: "单/双/循环链表"; styles ["caption","dim-label"] }
-                  }
+
+              Box {
+                orientation: vertical;
+                spacing: 4;
+                hexpand: true;
+
+                Label {
+                  label: "数组";
+
+                  styles [
+                    "heading",
+                  ]
                 }
-              }
-              ListBoxRow stacks_queues {
-                name: "stacks_queues";
-                Box {
-                  spacing: 12;
-                  Image { icon-name: "preferences-system-symbolic"; }
-                  Box {
-                    orientation: vertical;
-                    spacing: 4;
-                    hexpand: true;
-                    Label { label: "栈与队列"; styles ["heading"] }
-                    Label { label: "顺序/链式实现"; styles ["caption","dim-label"] }
-                  }
-                }
-              }
-              ListBoxRow trees_graphs {
-                name: "trees_graphs";
-                Box {
-                  spacing: 12;
-                  Image { icon-name: "folder-symbolic"; }
-                  Box {
-                    orientation: vertical;
-                    spacing: 4;
-                    hexpand: true;
-                    Label { label: "树与图"; styles ["heading"]}
-                    Label { label: "二叉树、图及遍历算法"; styles ["caption","dim-label"] }
-                  }
-                }
-              }
-              ListBoxRow sorting_searching {
-                name: "sorting_searching";
-                Box {
-                  spacing: 12;
-                  Image { icon-name: "view-sort-symbolic"; }
-                  Box {
-                    orientation: vertical;
-                    spacing: 4;
-                    hexpand: true;
-                    Label { label: "排序与查找"; styles ["heading"] }
-                    Label { label: "冒泡、快速、二分查找"; styles ["caption","dim-label"] }
-                  }
+
+                Label {
+                  label: "一维/多维数组";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
                 }
               }
             }
           }
 
-          // 新增：设计模式
-          Expander design_patterns {
-            label: "设计模式";
-            expanded: false;
+          ListBoxRow linked_lists {
+            name: "linked_lists";
+
             Box {
-              orientation: vertical;
-              spacing: 4;
-              ListBoxRow creational {
-                name: "creational_patterns";
-                Box {
-                  spacing: 12;
-                  Image { icon-name: "folder-symbolic"; }
-                  Box {
-                    orientation: vertical;
-                    spacing: 4;
-                    hexpand: true;
-                    Label { label: "创建型模式"; styles ["heading"]}
-                    Label { label: "工厂、单例、建造者"; styles ["caption","dim-label"] }
-                  }
-                }
+              spacing: 12;
+
+              Image {
+                icon-name: "view-list-symbolic";
               }
-              ListBoxRow structural {
-                name: "structural_patterns";
-                Box {
-                  spacing: 12;
-                  Image { icon-name: "folder-symbolic"; }
-                  Box {
-                    orientation: vertical;
-                    spacing: 4;
-                    hexpand: true;
-                    Label { label: "结构型模式"; styles ["heading"] }
-                    Label { label: "适配器、装饰器、组合"; styles ["caption","dim-label"]}
-                  }
+
+              Box {
+                orientation: vertical;
+                spacing: 4;
+                hexpand: true;
+
+                Label {
+                  label: "链表";
+
+                  styles [
+                    "heading",
+                  ]
                 }
-              }
-              ListBoxRow behavioral {
-                name: "behavioral_patterns";
-                Box {
-                  spacing: 12;
-                  Image { icon-name: "folder-symbolic"; }
-                  Box {
-                    orientation: vertical;
-                    spacing: 4;
-                    hexpand: true;
-                    Label { label: "行为型模式"; styles ["heading"]}
-                    Label { label: "策略、观察者、状态"; styles ["caption","dim-label"] }
-                  }
+
+                Label {
+                  label: "单/双/循环链表";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
                 }
               }
             }
           }
 
-        }
+          ListBoxRow stacks_queues {
+            name: "stacks_queues";
+
+            Box {
+              spacing: 12;
+
+              Image {
+                icon-name: "preferences-system-symbolic";
+              }
+
+              Box {
+                orientation: vertical;
+                spacing: 4;
+                hexpand: true;
+
+                Label {
+                  label: "栈与队列";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "顺序/链式实现";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
+              }
+            }
+          }
+
+          ListBoxRow trees_graphs {
+            name: "trees_graphs";
+
+            Box {
+              spacing: 12;
+
+              Image {
+                icon-name: "folder-symbolic";
+              }
+
+              Box {
+                orientation: vertical;
+                spacing: 4;
+                hexpand: true;
+
+                Label {
+                  label: "树与图";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "二叉树、图及遍历算法";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
+              }
+            }
+          }
+
+          ListBoxRow sorting_searching {
+            name: "sorting_searching";
+
+            Box {
+              spacing: 12;
+
+              Image {
+                icon-name: "view-sort-symbolic";
+              }
+
+              Box {
+                orientation: vertical;
+                spacing: 4;
+                hexpand: true;
+
+                Label {
+                  label: "排序与查找";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "冒泡、快速、二分查找";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
+              }
+            }
+          }
+        };
+      }
+
+      // ------------------ 设计模式 ------------------
+      StackPage {
+        name: "design_pattern";
+        title: "设计模式";
+
+        child: ListBox {
+          ListBoxRow creational {
+            name: "creational_patterns";
+
+            Box {
+              spacing: 12;
+
+              Image {
+                icon-name: "folder-symbolic";
+              }
+
+              Box {
+                orientation: vertical;
+                spacing: 4;
+                hexpand: true;
+
+                Label {
+                  label: "创建型模式";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "工厂、单例、建造者";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
+              }
+            }
+          }
+
+          ListBoxRow structural {
+            name: "structural_patterns";
+
+            Box {
+              spacing: 12;
+
+              Image {
+                icon-name: "folder-symbolic";
+              }
+
+              Box {
+                orientation: vertical;
+                spacing: 4;
+                hexpand: true;
+
+                Label {
+                  label: "结构型模式";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "适配器、装饰器、组合";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
+              }
+            }
+          }
+
+          ListBoxRow behavioral {
+            name: "behavioral_patterns";
+
+            Box {
+              spacing: 12;
+
+              Image {
+                icon-name: "folder-symbolic";
+              }
+
+              Box {
+                orientation: vertical;
+                spacing: 4;
+                hexpand: true;
+
+                Label {
+                  label: "行为型模式";
+
+                  styles [
+                    "heading",
+                  ]
+                }
+
+                Label {
+                  label: "策略、观察者、状态";
+
+                  styles [
+                    "caption",
+                    "dim-label",
+                  ]
+                }
+              }
+            }
+          }
+        };
       }
     }
+
+  
+
     // 垂直分割线
     Separator {
       orientation: vertical;
     }
+
     // 右侧主要内容区
     Box main_content_area {
       orientation: vertical;
@@ -598,35 +975,41 @@ Expander basics {
       // 顶部标题栏
       HeaderBar content_header {
         show-title-buttons: false;
+
         title-widget: Label content_title {
           label: "选择一个主题开始学习";
+
           styles [
             "title",
           ]
         };
+
         [end]
         Box {
           spacing: 6;
+
           Button search_button {
             icon-name: "system-search-symbolic";
             tooltip-text: "搜索内容";
           }
+
           MenuButton options_menu {
             icon-name: "open-menu-symbolic";
             tooltip-text: "选项";
           }
         }
       }
+
       // 内容容器
       ScrolledWindow content_scroll {
         hexpand: true;
         vexpand: true;
+
         Box content_container {
           orientation: vertical;
           hexpand: true;
           vexpand: true;
           // 默认欢迎内容
-
         }
       }
     }
