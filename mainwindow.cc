@@ -77,11 +77,11 @@ void MainWindow::load_chapter(const std::string& chapter_name) {
     try {
         std::cout << "Loading chapter: " << chapter_name << std::endl;
         
-        // 移除当前章节
-        if (m_current_widget) {
-            m_content_container->remove(*m_current_widget);
-            m_current_widget = nullptr;
-        }
+        // // 移除当前章节
+        // if (m_current_widget) {
+        //     m_content_container->remove(*m_current_widget);
+        //     m_current_widget = nullptr;
+        // }
         
         // 检查是否已经加载过这个章节的构建器
         auto builder_it = m_chapter_builders.find(chapter_name);
