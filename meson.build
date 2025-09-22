@@ -14,6 +14,7 @@ blueprint_compiler = find_program('blueprint-compiler')
 compiled_ui = []
 ui_blp_files = files(
   'resources/ui/window.blp',
+  'resources/ui/chapters/welcome.blp',
   'resources/ui/chapters/functions.blp',
   'resources/ui/chapters/basic_syntax.blp',
 )

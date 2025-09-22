@@ -8,6 +8,8 @@ MainWindow::MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>
 {
     // 设置窗口控制
     setup_window_controls();
+    maximize();
+    // fullscreen();    
     
     // 获取主要 UI 组件
     m_menu_list = m_main_builder->get_widget<Gtk::ListBox>("menu_list");
@@ -23,6 +25,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>
     m_menu_list->signal_row_activated().connect(
         sigc::mem_fun(*this, &MainWindow::on_menu_row_activated));
     
+    load_chapter("welcome");
     std::cout << "MainWindow initialized successfully" << std::endl;
 }
 

@@ -1,10 +1,11 @@
 using Gtk 4.0;
 ApplicationWindow window {
   title: "Athena - C++ 学习指南";
-  default-width: 1200;
-  default-height: 800;
+  default-width: 1920;
+  default-height: 1080;
   resizable: true;
   deletable: false;
+  maximized: true;    
   Box main_container {
     orientation: horizontal;
     // 左侧边栏
@@ -16,6 +17,7 @@ ApplicationWindow window {
       ]
       // 侧边栏标题
       HeaderBar sidebar_header {
+        show-title-buttons: false; 
         title-widget: Label {
           label: "C++ 学习路线";
           styles [
@@ -41,6 +43,34 @@ ApplicationWindow window {
             "navigation-sidebar"
           ]
           // 第一阶段：基础入门
+            ListBoxRow welcome {
+            name: "welcome";
+            Box {
+              spacing: 12;
+              Image {
+                icon-name: "text-x-generic-symbolic";
+              }
+              Box {
+                orientation: vertical;
+                spacing: 4;
+                hexpand: true;
+                Label {
+                  label: "欢迎页";
+                                    styles [
+                    "heading"
+                  ]
+                }
+                Label {
+                  label: "总体学习思想与路线";
+                                    styles [
+                    "caption",
+                    "dim-label"
+                  ]
+                }
+              }
+            }
+          }
+
           ListBoxRow basic_syntax {
             name: "basic_syntax";
             Box {
@@ -54,15 +84,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "基础语法";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "变量、数据类型、运算符";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -84,15 +112,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "数组与字符串";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "一维/多维数组、C风格字符串";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -114,15 +140,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "函数基础";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "函数定义、参数传递、重载";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -143,15 +167,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "指针与引用";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "内存管理、指针运算、引用类型";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -172,15 +194,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "动态内存";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "new/delete、内存泄漏防范";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -202,15 +222,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "类与对象";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "类定义、成员变量与函数";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -231,15 +249,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "构造与析构";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "构造函数、析构函数、拷贝控制";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -260,15 +276,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "继承";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "单继承、多继承、访问控制";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -289,15 +303,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "多态";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "虚函数、抽象类、接口设计";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -319,15 +331,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "STL 容器";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "vector、list、map、set等";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -348,15 +358,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "STL 算法";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "排序、查找、变换算法";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -377,15 +385,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "迭代器";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "迭代器类型、范围for循环";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -407,15 +413,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "模板基础";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "函数模板、类模板";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -436,15 +440,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "泛型编程";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "模板特化、SFINAE";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -466,15 +468,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "C++11 特性";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "auto、lambda、智能指针";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -495,15 +495,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "C++14/17 特性";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "变量模板、if constexpr";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -524,15 +522,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "C++20 特性";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "概念、协程、模块";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -554,15 +550,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "异常处理";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "try/catch、异常安全";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -583,15 +577,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "文件与流";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "文件读写、字符串流";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -612,15 +604,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "并发编程";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "线程、互斥锁、同步";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -641,15 +631,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "调试技巧";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "GDB、内存检测工具";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -671,15 +659,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "项目实战";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "实际项目开发经验";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -700,15 +686,13 @@ ApplicationWindow window {
                 hexpand: true;
                 Label {
                   label: "最佳实践";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "heading"
                   ]
                 }
                 Label {
                   label: "代码规范、设计模式";
-                  xalign: 0;
-                  styles [
+                                    styles [
                     "caption",
                     "dim-label"
                   ]
@@ -730,6 +714,7 @@ ApplicationWindow window {
       vexpand: true;
       // 顶部标题栏
       HeaderBar content_header {
+        show-title-buttons: false; 
         title-widget: Label content_title {
           label: "选择一个主题开始学习";
           styles [
