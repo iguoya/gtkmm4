@@ -5,360 +5,114 @@ ScrolledWindow basic_syntax_page {
   vexpand: true;
   hscrollbar-policy: never;
   
-  Box basic_syntax_container {
-    orientation: vertical;
-    spacing: 24;
+  Box content_panel {
+    orientation: horizontal;
     hexpand: true;
+    vexpand: true;
+    spacing: 18;
+    margin-start: 12;
+    margin-end: 12;
+    margin-top: 12;
+    margin-bottom: 12;
     
-    // 章节标题区域
-    Box header_section {
-      orientation: vertical;
-      spacing: 16;
-      halign: center;
-      
-      Image chapter_icon {
-        icon-name: "text-x-generic-symbolic";
-        pixel-size: 64;
-        
-        styles [
-          "icon-dropshadow"
-        ]
-      }
-      
-      Label chapter_title {
-        label: "C++ 基础语法";
-        
-        styles [
-          "title-1"
-        ]
-      }
-      
-      Label chapter_subtitle {
-        label: "学习 C++ 的基本语法元素：变量、数据类型和运算符";
-        wrap: true;
-        justify: center;
-        
-        styles [
-          "title-4",
-          "dim-label"
-        ]
-      }
-    }
-    
-    // 学习进度
-    Box progress_section {
+    // 左侧代码编辑区
+    Box code_editor_section {
       orientation: vertical;
       spacing: 12;
+      hexpand: true;
+      vexpand: true;
       
-      Box progress_header {
-        orientation: horizontal;
-        spacing: 12;
-        
-        Label {
-          label: "学习进度";
-          hexpand: true;
-          xalign: 0;
-          
-          styles [
-            "title-4"
-          ]
-        }
-        
-        Label progress_text {
-          label: "0 / 5 完成";
-          
-          styles [
-            "dim-label"
-          ]
-        }
-      }
-      
-      ProgressBar chapter_progress {
-        fraction: 0.0;
-        show-text: false;
-        hexpand: true;
-      }
-    }
-    
-    // 知识点列表
-    Box topics_section {
-      orientation: vertical;
-      spacing: 16;
-      
-      Label topics_title {
-        label: "本章知识点";
+      Label code_section_title {
+        label: "代码编辑器";
         xalign: 0;
         
         styles [
-          "title-3"
+          "title-4"
         ]
       }
       
-      ListBox topics_list {
-        selection-mode: none;
+      Frame code_frame {
+        vexpand: true;
         
-        styles [
-          "boxed-list"
-        ]
-        
-        ListBoxRow variables_topic {
-          Box {
-            spacing: 12;
-            
-            Image {
-              icon-name: "accessories-calculator-symbolic";
-              icon-size: normal;
-            }
-            
-            Box {
-              orientation: vertical;
-              spacing: 4;
-              hexpand: true;
-              
-              Label {
-                label: "变量与常量";
-                xalign: 0;
-                
-                styles [
-                  "heading"
-                ]
-              }
-              
-              Label {
-                label: "变量声明、初始化、作用域和生命周期";
-                xalign: 0;
-                
-                styles [
-                  "caption",
-                  "dim-label"
-                ]
-              }
-            }
-            
-            Button variables_start {
-              label: "开始学习";
-              
-              styles [
-                "suggested-action"
-              ]
-            }
-          }
-        }
-        
-        ListBoxRow datatypes_topic {
-          Box {
-            spacing: 12;
-            
-            Image {
-              icon-name: "applications-utilities-symbolic";
-              icon-size: normal;
-            }
-            
-            Box {
-              orientation: vertical;
-              spacing: 4;
-              hexpand: true;
-              
-              Label {
-                label: "数据类型";
-                xalign: 0;
-                
-                styles [
-                  "heading"
-                ]
-              }
-              
-              Label {
-                label: "基本数据类型：int、float、double、char、bool";
-                xalign: 0;
-                
-                styles [
-                  "caption",
-                  "dim-label"
-                ]
-              }
-            }
-            
-            Button datatypes_start {
-              label: "开始学习";
-              
-              styles [
-                "suggested-action"
-              ]
-            }
-          }
-        }
-        
-        ListBoxRow operators_topic {
-          Box {
-            spacing: 12;
-            
-            Image {
-              icon-name: "applications-science-symbolic";
-              icon-size: normal;
-            }
-            
-            Box {
-              orientation: vertical;
-              spacing: 4;
-              hexpand: true;
-              
-              Label {
-                label: "运算符";
-                xalign: 0;
-                
-                styles [
-                  "heading"
-                ]
-              }
-              
-              Label {
-                label: "算术、关系、逻辑、位运算符及优先级";
-                xalign: 0;
-                
-                styles [
-                  "caption",
-                  "dim-label"
-                ]
-              }
-            }
-            
-            Button operators_start {
-              label: "开始学习";
-              
-              styles [
-                "suggested-action"
-              ]
-            }
-          }
-        }
-        
-        ListBoxRow io_topic {
-          Box {
-            spacing: 12;
-            
-            Image {
-              icon-name: "input-output-symbolic";
-              icon-size: normal;
-            }
-            
-            Box {
-              orientation: vertical;
-              spacing: 4;
-              hexpand: true;
-              
-              Label {
-                label: "输入输出";
-                xalign: 0;
-                
-                styles [
-                  "heading"
-                ]
-              }
-              
-              Label {
-                label: "使用 cin 和 cout 进行基本的输入输出操作";
-                xalign: 0;
-                
-                styles [
-                  "caption",
-                  "dim-label"
-                ]
-              }
-            }
-            
-            Button io_start {
-              label: "开始学习";
-              
-              styles [
-                "suggested-action"
-              ]
-            }
-          }
-        }
-        
-        ListBoxRow comments_topic {
-          Box {
-            spacing: 12;
-            
-            Image {
-              icon-name: "text-editor-symbolic";
-              icon-size: normal;
-            }
-            
-            Box {
-              orientation: vertical;
-              spacing: 4;
-              hexpand: true;
-              
-              Label {
-                label: "注释与风格";
-                xalign: 0;
-                
-                styles [
-                  "heading"
-                ]
-              }
-              
-              Label {
-                label: "单行注释、多行注释和良好的编程风格";
-                xalign: 0;
-                
-                styles [
-                  "caption",
-                  "dim-label"
-                ]
-              }
-            }
-            
-            Button comments_start {
-              label: "开始学习";
-              
-              styles [
-                "suggested-action"
-              ]
-            }
-          }
-        }
-      }
-    }
-    
-    // 代码示例区域
-    Box example_section {
-      orientation: vertical;
-      spacing: 16;
-      
-      Label example_title {
-        label: "代码示例";
-        xalign: 0;
-        
-        styles [
-          "title-3"
-        ]
-      }
-      
-      Frame example_frame {
-        Box example_content {
+        Box code_editor_container {
           orientation: vertical;
-          spacing: 12;
           
-          Box example_header {
+          // 代码编辑器工具栏（V5 终极修复：用最基础控件，无复杂逻辑）
+          Box editor_toolbar {
             orientation: horizontal;
-            spacing: 12;
+            spacing: 8;
+            margin-start: 6;
+            margin-end: 6;
+            margin-top: 6;
+            margin-bottom: 6;
             
-            Label {
-              label: "Hello World 程序";
-              hexpand: true;
-              xalign: 0;
-              
-              styles [
-                "heading"
-              ]
+            // V5 修复1：放弃动态选项，用基础 ComboBox（后续用 C++ 代码加选项）
+            ComboBox language_selector {
+              hexpand: false;
+              // 0.1 版本不支持 model 动态赋值，先留空，后续通过代码绑定
+              CellRendererText {
+                text: "0";
+              }
             }
             
-            Button copy_code {
-              icon-name: "edit-copy-symbolic";
-              tooltip-text: "复制代码";
+            Separator {
+              orientation: vertical;
+            }
+            
+            // V5 修复2：按钮保持最简 Box 嵌套，无任何风险属性
+            Button run_button {
+              styles [
+                "suggested-action"
+              ]
+              
+              Box {
+                orientation: horizontal;
+                spacing: 6;
+                margin-start: 10;
+                margin-end: 10;
+                margin-top: 5;
+                margin-bottom: 5;
+                
+                Image {
+                  icon-name: "media-playback-start-symbolic";
+                  icon-size: normal;
+                }
+                
+                Label {
+                  label: "运行代码";
+                }
+              }
+            }
+            
+            Button reset_button {
+              Box {
+                orientation: horizontal;
+                spacing: 6;
+                margin-start: 10;
+                margin-end: 10;
+                margin-top: 5;
+                margin-bottom: 5;
+                
+                Image {
+                  icon-name: "edit-clear-symbolic";
+                  icon-size: normal;
+                }
+                
+                Label {
+                  label: "重置";
+                }
+              }
+            }
+            
+            Button save_button {
+              tooltip-text: "保存代码";
+              margin-start: 5;
+              margin-end: 5;
+              
+              Image {
+                icon-name: "document-save-symbolic";
+                icon-size: normal;
+              }
               
               styles [
                 "flat"
@@ -366,17 +120,18 @@ ScrolledWindow basic_syntax_page {
             }
           }
           
+          // 代码编辑区域（无报错，保持最简）
           ScrolledWindow code_scroll {
-            height-request: 200;
-            hscrollbar-policy: automatic;
-            vscrollbar-policy: automatic;
+            vexpand: true;
             
-            TextView code_view {
-              editable: false;
-              cursor-visible: false;
+            TextView code_editor {
+              monospace: true;
+              wrap-mode: word_char;
+              vexpand: true;
               
               styles [
-                "code-view"
+                "code-view",
+                "editor"
               ]
             }
           }
@@ -388,44 +143,175 @@ ScrolledWindow basic_syntax_page {
       }
     }
     
-    // 练习区域
-    Box exercise_section {
+    Separator {
       orientation: vertical;
-      spacing: 16;
+    }
+    
+    // 右侧信息展示区（全部保持最简，无任何复杂属性）
+    Box info_section {
+      orientation: vertical;
+      spacing: 12;
+      hexpand: true;
+      vexpand: true;
+      width-request: 400;
       
-      Label exercise_title {
-        label: "章节练习";
-        xalign: 0;
+      Box output_section {
+        orientation: vertical;
+        spacing: 12;
         
-        styles [
-          "title-3"
-        ]
+        Label output_title {
+          label: "运行结果";
+          xalign: 0;
+          
+          styles [
+            "title-4"
+          ]
+        }
+        
+        Frame output_frame {
+          Box output_container {
+            orientation: vertical;
+            
+            Box output_toolbar {
+              orientation: horizontal;
+              spacing: 8;
+              margin-start: 6;
+              margin-end: 6;
+              margin-top: 6;
+              margin-bottom: 6;
+              
+              Label output_status {
+                label: "就绪";
+                hexpand: true;
+                xalign: 0;
+                
+                styles [
+                  "dim-label"
+                ]
+              }
+              
+              Button clear_output {
+                tooltip-text: "清空输出";
+                margin-start: 5;
+                margin-end: 5;
+                
+                Image {
+                  icon-name: "edit-clear-symbolic";
+                  icon-size: normal;
+                }
+                
+                styles [
+                  "flat"
+                ]
+              }
+            }
+            
+            ScrolledWindow output_scroll {
+              vexpand: true;
+              min-content-height: 150;
+              
+              TextView output_view {
+                editable: false;
+                cursor-visible: false;
+                monospace: true;
+                wrap-mode: word_char;
+                
+                styles [
+                  "code-view"
+                ]
+              }
+            }
+          }
+          
+          styles [
+            "card"
+          ]
+        }
       }
       
-      Box exercise_buttons {
-        orientation: horizontal;
+      Box documentation_section {
+        orientation: vertical;
         spacing: 12;
-        halign: center;
+        vexpand: true;
         
-        Button practice_button {
-          label: "在线练习";
+        Label docs_title {
+          label: "知识点说明";
+          xalign: 0;
           
           styles [
-            "suggested-action"
+            "title-4"
           ]
         }
         
-        Button quiz_button {
-          label: "章节测验";
-        }
-        
-        Button next_chapter {
-          label: "下一章";
+        Frame docs_frame {
+          vexpand: true;
+          
+          ScrolledWindow docs_scroll {
+            vexpand: true;
+            
+            TextView documentation_view {
+              editable: false;
+              cursor-visible: false;
+              wrap-mode: word_char;
+              justification: fill;
+                
+              styles [
+                "text-view"
+              ]
+            }
+          }
           
           styles [
-            "pill"
+            "card"
           ]
         }
+      }
+      
+      Box hints_section {
+        orientation: vertical;
+        spacing: 8;
+        margin-start: 6;
+        margin-end: 6;
+        margin-top: 6;
+        margin-bottom: 6;
+        
+        Label hints_title {
+          label: "学习提示";
+          xalign: 0;
+          
+          styles [
+            "title-4"
+          ]
+        }
+        
+        Box hints_container {
+          orientation: vertical;
+          spacing: 6;
+          
+          Label hint_text {
+            label: "• 尝试修改代码中的变量类型（如int→float），观察输出差异\n• 测试int8_t的边界值（-128、127），看溢出时的运行结果\n• 用//注释标注代码功能，养成良好编程习惯";
+            wrap: true;
+            xalign: 0;
+            
+            styles [
+              "caption"
+            ]
+          }
+          
+          Button more_hints {
+            label: "查看更多提示";
+            halign: end;
+            
+            styles [
+              "link-button"
+            ]
+          }
+        }
+        
+        styles [
+          "background",
+          "card"
+        ]
       }
     }
   }
